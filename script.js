@@ -78,6 +78,9 @@ quizModeBtn.addEventListener('click', () => {
   if (quizOn) showQuizWord();
 });
 
+document.getElementById('quiz-reveal-btn').textContent = '정답 보기';
+document.getElementById('quiz-next-btn').textContent = '다음 단어';
+
 document.getElementById('quiz-reveal-btn').addEventListener('click', () => {
   document.getElementById('quiz-meaning').style.display = 'block';
 });
