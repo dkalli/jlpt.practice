@@ -5,6 +5,7 @@ async function loadLevel(level) {
   const res = await fetch(`data/${level}.json`);
   currentWords = res.ok ? await res.json() : [];
   renderWords();
+  if (document.getElementById('quiz-area').style.display !== 'none') showQuizWord();
 }
 
 function renderWords() {
@@ -49,6 +50,38 @@ document.querySelectorAll('#level-tabs button').forEach(btn => {
 document.getElementById('furigana-toggle').addEventListener('change', (e) => {
   showFurigana = e.target.checked;
   renderWords();
+  if (document.getElementById('quiz-area').style.display !== 'none') showQuizWord();
 });
+
+// --- 퀴즈 모드 ---
+const wordListEl = document.getElementById('word-list');
+const quizAreaEl = document.getElementById('quiz-area');
+const quizModeBtn = document.getElementById('quiz-mode-btn');
+let quizOn = false;
+let currentQuizWord = null;
+
+function showQuizWord() {
+  if (currentWords.length === 0) return;
+  currentQuizWord = currentWords[Math.floor(Math.random() * currentWords.length)];
+  document.getElementById('quiz-word').textContent = currentQuizWord.word;
+  document.getElementById('quiz-reading').textContent = showFurigana ? `(${currentQuizWord.reading})` : '';
+  const meaningEl = document.getElementById('quiz-meaning');
+  meaningEl.style.display = 'none';
+  meaningEl.textContent = currentQuizWord.meaning_ko;
+}
+
+quizModeBtn.addEventListener('click', () => {
+  quizOn = !quizOn;
+  quizModeBtn.textContent = quizOn ? '목록 보기' : '퀴즈 모드';
+  wordListEl.style.display = quizOn ? 'none' : 'grid';
+  quizAreaEl.style.display = quizOn ? 'block' : 'none';
+  if (quizOn) showQuizWord();
+});
+
+document.getElementById('quiz-reveal-btn').addEventListener('click', () => {
+  document.getElementById('quiz-meaning').style.display = 'block';
+});
+
+document.getElementById('quiz-next-btn').addEventListener('click', showQuizWord);
 
 loadLevel('n5');

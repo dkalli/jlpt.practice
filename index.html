@@ -20,9 +20,22 @@
     <input type="checkbox" id="furigana-toggle" checked>
     한자 발음 보기
   </label>
+  <button id="quiz-mode-btn">퀴즈 모드</button>
 </header>
 
 <main id="word-list"></main>
+
+<main id="quiz-area" style="display:none">
+  <div id="quiz-card">
+    <div id="quiz-word"></div>
+    <div id="quiz-reading"></div>
+    <div id="quiz-meaning" style="display:none"></div>
+  </div>
+  <div id="quiz-buttons">
+    <button id="quiz-reveal-btn">정답 보기</button>
+    <button id="quiz-next-btn">다음 단어</button>
+  </div>
+</main>
 
 <script src="script.js"></script>
 </body>
