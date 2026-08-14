@@ -16,24 +16,30 @@ body{
 header{
   position:sticky; top:0;
   background:var(--bg);
-  padding:20px 16px 12px;
+  padding:10px 16px;
   border-bottom:1px solid var(--border);
   z-index:10;
 }
 h1{
-  font-size:1.3rem;
-  margin:0 0 12px;
+  font-size:1.05rem;
+  margin:0 0 8px;
+}
+.controls{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 #level-tabs{
-  display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;
+  display:flex; gap:6px; flex-wrap:wrap;
 }
 #level-tabs button{
-  padding:6px 14px;
+  padding:5px 12px;
   border:1px solid var(--border);
   background:var(--card);
   border-radius:20px;
   cursor:pointer;
-  font-size:0.9rem;
+  font-size:0.85rem;
 }
 #level-tabs button.active{
   background:var(--accent);
@@ -41,9 +47,10 @@ h1{
   border-color:var(--accent);
 }
 #furigana-label{
-  font-size:0.85rem;
+  font-size:0.8rem;
   color:var(--sub);
-  display:flex; align-items:center; gap:6px;
+  display:flex; align-items:center; gap:5px;
+  margin-left:auto;
 }
 main{
   max-width:640px;
@@ -76,14 +83,14 @@ main{
   font-size:0.95rem;
 }
 #quiz-mode-btn{
-  margin-top:8px;
-  padding:6px 14px;
+  padding:5px 12px;
   border:1px solid var(--accent);
   background:var(--accent);
   color:#fff;
   border-radius:20px;
   cursor:pointer;
   font-size:0.85rem;
+  white-space:nowrap;
 }
 #quiz-area{
   max-width:640px;
