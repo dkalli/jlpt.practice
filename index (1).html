@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JLPT 단어 암기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>JLPT 단어 암기</h1>
+  <nav id="level-tabs">
+    <button data-level="n5" class="active">N5</button>
+    <button data-level="n4">N4</button>
+    <button data-level="n3">N3</button>
+    <button data-level="n2">N2</button>
+    <button data-level="n1">N1</button>
+  </nav>
+  <label id="furigana-label">
+    <input type="checkbox" id="furigana-toggle" checked>
+    한자 발음 보기
+  </label>
+</header>
+
+<main id="word-list"></main>
+
+<script src="script.js"></script>
+</body>
+</html>
